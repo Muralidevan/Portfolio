@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { AppBar, Container, IconButton, makeStyles, Toolbar, Typography, useScrollTrigger } from '@material-ui/core';
 import { ThemeContext } from '../src/theme';
+import Home from '../src/components/Home'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -13,7 +14,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Home() {
+export default function Index() {
 
   const classes = useStyles();
 
@@ -38,7 +39,9 @@ export default function Home() {
         </Toolbar>
       </AppBar>
       <Toolbar className={classes.toolbar} />
-
+      <Container>
+        <Home />
+      </Container>
 
 
     </div>

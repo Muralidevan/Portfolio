@@ -1,9 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { useRouter } from 'next/router'
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { MuiThemeProvider } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeContext, ThemeProvider } from '../src/theme';
+import * as ga from '../lib/ga'
 
 
 function ThemeConsumer({ Component, pageProps }) {
@@ -17,13 +19,26 @@ function ThemeConsumer({ Component, pageProps }) {
 }
 export default function MyApp(props) {
 
-  React.useEffect(() => {
+  const router = useRouter()
+
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      ga.pageview(url)
+    }
+    //When the component is mounted, subscribe to router changes
+    //and log those page views
+    router.events.on('routeChangeComplete', handleRouteChange)
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
-  }, []);
+      // If the component is unmounted, unsubscribe
+      // from the event with the `off` method
+      return () => {
+        router.events.off('routeChangeComplete', handleRouteChange)
+      }
+    }, [router.events]);
 
   return (
     <React.Fragment>
