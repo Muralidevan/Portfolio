@@ -3,13 +3,28 @@ import Document, {
   Html, Head, Main, NextScript,
 } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
+import { strings } from '../constants/strings'
 
 export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
         <Head>
-          <meta charSet='utf-8' />
+          <meta charSet='UTF-8' />
+          {/* customize the display of the page or of the surrounding user interface */}
+          <meta name="theme-color" media="(prefers-color-scheme: light)" content="white" />
+          <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black" />
+
+          <meta name="description" content={`${strings.name} Portfolio developed using NextJs plying MaterialUI, includes SEO and Google Analytics`} />
+
+          <meta name='keywords' content={'Portfolio', 'NextJs', 'MaterialUI'} />
+          {/* site's favicon: apple-touch-icon for apple*/}
+          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+          <link rel="icon" href="favicon.ico" />
+
+
           <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;700&display=swap" rel="stylesheet" />
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script

@@ -44,7 +44,7 @@ export default function MyApp(props) {
     <React.Fragment>
       <Head>
         <title>Murali Devan</title>
-        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
       </Head>
       <ThemeProvider>
         <ThemeConsumer {...props} />
