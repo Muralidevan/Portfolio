@@ -10,6 +10,7 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta charSet='utf-8' />
+          <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;700&display=swap" rel="stylesheet" />
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
             async

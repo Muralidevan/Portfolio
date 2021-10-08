@@ -3,12 +3,7 @@ import { createContext, useState } from 'react';
 
 const themeObj = {
   typography: {
-    fontFamily: [
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      'Roboto',
-      '"Helivetica Neue"'
-    ]
+    fontFamily: ['Sora', 'sans-serif']
   },
   palette: {
     primary: {
